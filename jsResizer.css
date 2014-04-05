@@ -1,0 +1,60 @@
+/*
+usefull information:
+	.proxy-box : The box displayed with editor to select part of image.
+	.target-box : Image preview pane
+
+*/
+
+.editor-box {
+	cursor:move;
+	background-repeat: no-repeat;
+}
+
+.target-box {
+	background-repeat: no-repeat;
+}
+
+.proxy-box  {
+	float:left;
+	border: 1px solid red;
+	position:relative;
+	top:0px;
+	left:0px;
+	cursor:move;
+}
+
+.editor-box:hover, .proxy-box:hover {
+	cursor:move;
+}
+
+.toolbar-box {
+	float:right;
+	font-size:18px;
+}
+
+.toolbar-reset-button,.toolbar-zoomin-button,.toolbar-zoomout-button {
+	border:none;
+	width:22px;
+	height:22px;
+	cursor:pointer;
+	background-color:#eee;
+	background-size:18px 18px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.toolbar-zoomin-button {
+	background-image:url(zoom-in.png);
+}
+
+.toolbar-zoomout-button {
+	background-image:url(zoom-out.png);
+}
+
+.toolbar-reset-button {
+	background-image:url(reset.png);
+}
+.toolbar-zoomin-button:hover,.toolbar-zoomout-button:hover, .toolbar-zoomout-button:hover {
+	background-color:lightblue;
+}
+

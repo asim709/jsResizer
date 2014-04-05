@@ -1,0 +1,22 @@
+<html>
+<head>
+	<link rel="stylesheet" href="jsResizer.css" />
+	<script type="text/javascript" src="jsResizer.js"></script>
+	<title>Image Crop/Resize Test</title>
+</head>
+<body>
+
+<div id="edit-pane" style="float:left;width:500px;height:450px;border:1px solid #ccc;"></div>
+<div id="preview-pane" style="float:left;width:200px;height:180px;border:1px solid #ccc;margin-left:20px"></div>
+
+</body>
+</html>
+<script type="text/javascript">
+	
+	var rTool = jsResizer.create("edit-pane","preview-pane"); 
+
+	window.onload = function () {
+		rTool.setImage("example-image.jpg");
+	}
+</script>
+
