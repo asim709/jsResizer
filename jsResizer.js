@@ -141,15 +141,21 @@ jsResizer = {
 				this.target.xPosition = xx;
 				this.target.yPosition = yy;
 
-				bgSizeX = this.image.width;
-				bgSizeY = this.image.height;
+				var bgSizeX = this.image.width;
+				var bgSizeY = this.image.height;
 				if (obj.editor.box.style.backgroundSize != "") {
 					var dim = obj.editor.box.style.backgroundSize.split(" ");
-					bgSizeX = parseInt(dim[0]);
-					bgSizeY = parseInt(dim[1]);
+
+					if (dim.length == 1) {
+						bgSizeX = parseInt(dim[0]);
+						bgSizeY = parseInt(dim[0]);
+					} else if (dim.length == 2) {
+						bgSizeX = parseInt(dim[0]);
+						bgSizeY = parseInt(dim[1]);
+					}
 				}	
 
-				this.target.box.style.backgroundSize = bgSizeX + "px " + bgSizeY + "px";		
+				this.target.box.style.backgroundSize = bgSizeX + "px " + bgSizeY + "px";	
 				this.target.newWidth = bgSizeX;
 				this.target.newHeight = bgSizeY;
 			},
@@ -281,7 +287,6 @@ jsResizer = {
 					xx = bgX + x;
 					yy = bgY + y;
 
-					console.log( xx + "px " + yy + "px");
 					obj.editor.box.style.backgroundPosition = xx + "px " + yy + "px";
 					
 					obj.editor.mouseX = e.clientX;
@@ -325,6 +330,7 @@ jsResizer = {
 				bgSizeY = Math.round(bgSizeX*obj.image.yRatio,0);
 
 				obj.editor.box.style.backgroundSize = bgSizeX + "px " + bgSizeY + "px";
+				obj.syncTarget();
 			},
 
 			Event_ToolbarZoomOutButtonClick: function () {
@@ -333,6 +339,8 @@ jsResizer = {
 				bgSizeY = Math.round(bgSizeX*obj.image.yRatio,0);
 
 				obj.editor.box.style.backgroundSize = bgSizeX + "px " + bgSizeY + "px";
+				obj.syncTarget();
+
 			},
 
 			Event_ToolbarResetButtonClick: function () {
